@@ -14,7 +14,8 @@ import {
   RiAlignRight,
   RiAlignCenter,
   RiArrowDropDownLine,
-  RiParagraph
+  RiParagraph,
+  RiHeading
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -28,7 +29,8 @@ addIcons(
   RiAlignRight,
   RiAlignCenter,
   RiArrowDropDownLine,
-  RiParagraph
+  RiParagraph,
+  RiHeading
 )
 
 createApp(App).use(Editor).mount('#app')
