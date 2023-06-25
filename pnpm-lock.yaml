@@ -37,6 +37,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.16.17
     version: 18.16.17
+  '@unocss/transformer-directives':
+    specifier: ^0.53.3
+    version: 0.53.3
   '@vitejs/plugin-vue':
     specifier: ^4.2.3
     version: 4.2.3(vite@4.3.9)(vue@3.3.4)

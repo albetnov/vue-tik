@@ -15,7 +15,19 @@ import {
   RiAlignCenter,
   RiArrowDropDownLine,
   RiParagraph,
-  RiHeading
+  RiHeading,
+  RiListOrdered,
+  RiListUnordered,
+  RiTaskLine,
+  RiImageLine,
+  RiTableLine,
+  RiDivideLine,
+  RiYoutubeLine,
+  RiTwitterLine,
+  RiWindowLine,
+  RiCodeLine,
+  RiCodeBoxLine,
+  RiDoubleQuotesL
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -30,7 +42,19 @@ addIcons(
   RiAlignCenter,
   RiArrowDropDownLine,
   RiParagraph,
-  RiHeading
+  RiHeading,
+  RiListOrdered,
+  RiListUnordered,
+  RiTaskLine,
+  RiTableLine,
+  RiImageLine,
+  RiDivideLine,
+  RiYoutubeLine,
+  RiTwitterLine,
+  RiWindowLine,
+  RiCodeLine,
+  RiCodeBoxLine,
+  RiDoubleQuotesL
 )
 
 createApp(App).use(Editor).mount('#app')
