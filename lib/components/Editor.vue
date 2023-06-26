@@ -1,37 +1,25 @@
 <script setup lang="ts">
-import { useEditor, EditorContent } from '@tiptap/vue-3'
-import StarterKit from '@tiptap/starter-kit'
+import { EditorContent } from '@tiptap/vue-3'
 import EditorMenu from './EditorMenu.vue'
-import { inject, provide } from 'vue'
+import { provide, type Ref } from 'vue'
+import { EDITOR_KEY } from 'lib/keys'
+import type { Editor } from '@tiptap/vue-3'
 import type { EditorOptions } from 'lib/types'
-import { EDITOR_CONFIG, EDITOR_KEY } from 'lib/keys'
-import UploadableImage from 'lib/plugins/UploadableImage'
 
 const props = defineProps<{
-  options?: EditorOptions
+  config: {
+    editor: Ref<Editor>
+    options?: EditorOptions
+  }
 }>()
 
-const optionsInject = inject(EDITOR_CONFIG) as EditorOptions | undefined
-
-const options = optionsInject ? optionsInject : props.options
-
-const editor = useEditor({
-  content: '<p>A running tiptap editor!</p>',
-  extensions: [
-    StarterKit,
-    UploadableImage.configure({
-      allowBase64: options?.image.strategy !== 'url'
-    })
-  ]
-})
-
-provide(EDITOR_KEY, editor)
+provide(EDITOR_KEY, props.config.editor)
 </script>
 
 <template>
   <div class="flex flex-col">
-    <EditorMenu :options="options" />
-    <EditorContent :editor="editor" />
+    <EditorMenu :options="props.config.options" />
+    <EditorContent :editor="props.config.editor.value" />
   </div>
 </template>
 

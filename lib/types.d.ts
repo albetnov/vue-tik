@@ -12,5 +12,6 @@ export interface EditorOptions {
         url?: string
         requests?: object
         headers?: HeadersInit
-    }
+    },
+    initialValue?: string
 }
