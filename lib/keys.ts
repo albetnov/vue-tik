@@ -5,3 +5,5 @@ export enum FontTypes {
 }
 
 export const EDITOR_KEY = Symbol('VueEditor')
+
+export const EDITOR_CONFIG = Symbol('VueEditorConfig')

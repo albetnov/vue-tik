@@ -2,19 +2,25 @@
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import EditorMenu from './EditorMenu.vue'
-import { provide } from 'vue'
-import Image from '@tiptap/extension-image'
-import { EDITOR_KEY } from 'lib/types'
+import { inject, provide } from 'vue'
+import type { EditorOptions } from 'lib/types'
+import { EDITOR_CONFIG, EDITOR_KEY } from 'lib/keys'
+import UploadableImage from 'lib/plugins/UploadableImage'
+
+const props = defineProps<{
+  options?: EditorOptions
+}>()
+
+const optionsInject = inject(EDITOR_CONFIG) as EditorOptions | undefined
+
+const options = optionsInject ? optionsInject : props.options
 
 const editor = useEditor({
   content: '<p>A running tiptap editor!</p>',
   extensions: [
     StarterKit,
-    Image.configure({
-      HTMLAttributes: {
-        class: 'rounded-lg my-2 max-w-full max-h-full'
-      },
-      allowBase64: true
+    UploadableImage.configure({
+      allowBase64: options?.image.strategy !== 'url'
     })
   ]
 })
@@ -24,7 +30,7 @@ provide(EDITOR_KEY, editor)
 
 <template>
   <div class="flex flex-col">
-    <EditorMenu />
+    <EditorMenu :options="options" />
     <EditorContent :editor="editor" />
   </div>
 </template>

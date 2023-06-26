@@ -4,6 +4,11 @@ import EditorFontType from './Menus/EditorFontType.vue'
 import MenuWrapper from './MenuWrapper.vue'
 import Tooltip from './Tooltip.vue'
 import Image from './Menus/Image.vue'
+import type { EditorOptions } from 'lib/types'
+
+const props = defineProps<{
+  options?: EditorOptions
+}>()
 </script>
 
 <template>
@@ -38,7 +43,7 @@ import Image from './Menus/Image.vue'
     <MenuWrapper>
       <EditorButton icon="ri-code-line" name="Code" />
       <EditorButton icon="ri-code-box-line" name="Code Snippet" />
-      <Image />
+      <Image :options="props.options?.image" />
       <EditorButton icon="ri-table-line" name="Tables" />
       <EditorButton icon="ri-divide-line" name="Divider" />
       <EditorButton icon="ri-double-quotes-l" name="Blockquote" />
