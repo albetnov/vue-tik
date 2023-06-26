@@ -3,13 +3,23 @@ import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import EditorMenu from './EditorMenu.vue'
 import { provide } from 'vue'
+import Image from '@tiptap/extension-image'
+import { EDITOR_KEY } from 'lib/types'
 
 const editor = useEditor({
   content: '<p>A running tiptap editor!</p>',
-  extensions: [StarterKit]
+  extensions: [
+    StarterKit,
+    Image.configure({
+      HTMLAttributes: {
+        class: 'rounded-lg my-2 max-w-full max-h-full'
+      },
+      allowBase64: true
+    })
+  ]
 })
 
-provide('vue-editor', editor)
+provide(EDITOR_KEY, editor)
 </script>
 
 <template>

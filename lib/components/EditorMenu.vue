@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { inject } from 'vue'
 import EditorButton from './EditorButton.vue'
-import EditorFontType from './EditorFontType.vue'
+import EditorFontType from './Menus/EditorFontType.vue'
 import MenuWrapper from './MenuWrapper.vue'
-import type { Editor } from '@tiptap/vue-3'
 import Tooltip from './Tooltip.vue'
-
-const editor = inject('vue-editor') as Editor
+import Image from './Menus/Image.vue'
 </script>
 
 <template>
@@ -14,7 +11,7 @@ const editor = inject('vue-editor') as Editor
     class="bg-slate-100 md:rounded-lg rounded-xl 2xl:rounded-full py-1 px-2 flex items-center flex-wrap gap-5"
   >
     <MenuWrapper>
-      <EditorFontType :editor="editor" />
+      <EditorFontType />
     </MenuWrapper>
     <MenuWrapper class="relative">
       <input type="color" class="peer border-none rounded-full w-8 h-8" />
@@ -41,8 +38,8 @@ const editor = inject('vue-editor') as Editor
     <MenuWrapper>
       <EditorButton icon="ri-code-line" name="Code" />
       <EditorButton icon="ri-code-box-line" name="Code Snippet" />
+      <Image />
       <EditorButton icon="ri-table-line" name="Tables" />
-      <EditorButton icon="ri-image-line" name="Image" />
       <EditorButton icon="ri-divide-line" name="Divider" />
       <EditorButton icon="ri-double-quotes-l" name="Blockquote" />
     </MenuWrapper>

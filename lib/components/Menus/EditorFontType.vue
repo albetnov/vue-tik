@@ -1,39 +1,37 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject, type Ref } from 'vue'
 import EditorFontTypeItem from './EditorFontTypeItem.vue'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import type { Editor } from '@tiptap/vue-3'
-import { FontTypes } from 'lib/FontTypes'
-import Tooltip from './Tooltip.vue'
+import { EDITOR_KEY, FontTypes } from 'lib/types'
+import Tooltip from '../Tooltip.vue'
 
-const props = defineProps<{
-  editor: Editor
-}>()
+const editor = inject(EDITOR_KEY) as Ref<Editor>
 
 const onCurrentChange = (val: FontTypes) => {
   switch (val) {
     case FontTypes.paragraph:
-      props.editor.chain().focus().setParagraph().run()
+      editor.value.chain().focus().setParagraph().run()
       break
     case FontTypes.heading_1:
-      props.editor.chain().focus().setHeading({ level: 1 }).run()
+      editor.value.chain().focus().setHeading({ level: 1 }).run()
       break
     case FontTypes.heading_2:
-      props.editor.chain().focus().setHeading({ level: 2 }).run()
+      editor.value.chain().focus().setHeading({ level: 2 }).run()
       break
     default:
-      props.editor.chain().focus().unsetAllMarks().run()
+      editor.value.chain().focus().unsetAllMarks().run()
       break
   }
 }
 
 const editorState = computed(() => {
-  if (props.editor) {
-    if (props.editor.isActive('paragraph')) return 'Paragraph'
+  if (editor.value) {
+    if (editor.value.isActive('paragraph')) return 'Paragraph'
 
-    if (props.editor.isActive('heading', { level: 1 })) return 'Heading 1'
+    if (editor.value.isActive('heading', { level: 1 })) return 'Heading 1'
 
-    if (props.editor.isActive('heading', { level: 2 })) return 'Heading 2'
+    if (editor.value.isActive('heading', { level: 2 })) return 'Heading 2'
   }
   return 'Paragraph'
 })
@@ -56,7 +54,7 @@ const editorState = computed(() => {
         description="Set selection to paragraphs"
         icon="ri-paragraph"
         @click="onCurrentChange"
-        :active="props.editor.isActive('paragraph')"
+        :active="editor.isActive('paragraph')"
       />
       <EditorFontTypeItem
         name="Heading 1"
@@ -64,7 +62,7 @@ const editorState = computed(() => {
         description="Set selection to heading 1"
         icon="ri-heading"
         @click="onCurrentChange"
-        :active="props.editor.isActive('heading', { level: 1 })"
+        :active="editor.isActive('heading', { level: 1 })"
       />
       <EditorFontTypeItem
         name="Heading 2"
@@ -72,9 +70,10 @@ const editorState = computed(() => {
         description="Set selection to heading 2"
         icon="ri-heading"
         @click="onCurrentChange"
-        :active="props.editor.isActive('heading', { level: 2 })"
+        :active="editor.isActive('heading', { level: 2 })"
       />
     </PopoverPanel>
     <Tooltip :compact="false" activator="peer-hover:opacity-100">Change Font Type</Tooltip>
   </Popover>
 </template>
+lib/types

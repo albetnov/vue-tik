@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FontTypes } from 'lib/FontTypes'
+import type { FontTypes } from 'lib/types'
 
 const props = defineProps<{
   icon: string
@@ -31,3 +31,4 @@ const classes = [
     </div>
   </button>
 </template>
+lib/types
