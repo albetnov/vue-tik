@@ -2,9 +2,9 @@
 import { EditorContent } from '@tiptap/vue-3'
 import EditorMenu from './EditorMenu.vue'
 import { provide, type Ref } from 'vue'
-import { EDITOR_KEY } from 'lib/keys'
+import { EDITOR_KEY } from '../keys'
 import type { Editor } from '@tiptap/vue-3'
-import type { EditorOptions } from 'lib/types'
+import type { EditorOptions } from '../types'
 
 const props = defineProps<{
   config: {

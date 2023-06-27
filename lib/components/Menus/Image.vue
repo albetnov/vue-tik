@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import EditorButton from '../EditorButton.vue'
-import type { EditorOptions } from 'lib/types'
-import useImageUpload from 'lib/compositions/useImageUpload'
+import type { EditorOptions } from '../../types'
+import useImageUpload from '../../compositions/useImageUpload'
 
 const props = defineProps<{
   options?: EditorOptions['image']

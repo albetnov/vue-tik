@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FontTypes } from 'lib/keys'
+import type { FontTypes } from '../../keys'
 
 const props = defineProps<{
   icon: string

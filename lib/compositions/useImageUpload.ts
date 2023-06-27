@@ -1,6 +1,6 @@
 import type { Editor } from "@tiptap/vue-3"
-import { EDITOR_KEY } from "lib/keys"
-import type { EditorOptions } from "lib/types"
+import { EDITOR_KEY } from "../keys"
+import type { EditorOptions } from "../types"
 import { inject, type Ref } from "vue"
 
 export default function useImageUpload(options?: EditorOptions['image']) {

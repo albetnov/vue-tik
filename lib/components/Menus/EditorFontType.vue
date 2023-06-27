@@ -3,7 +3,7 @@ import { computed, inject, type Ref } from 'vue'
 import EditorFontTypeItem from './EditorFontTypeItem.vue'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import type { Editor } from '@tiptap/vue-3'
-import { EDITOR_KEY, FontTypes } from 'lib/keys'
+import { EDITOR_KEY, FontTypes } from '../../keys'
 import Tooltip from '../Tooltip.vue'
 
 const editor = inject(EDITOR_KEY) as Ref<Editor>

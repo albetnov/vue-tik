@@ -4,7 +4,7 @@ import EditorFontType from './Menus/EditorFontType.vue'
 import MenuWrapper from './MenuWrapper.vue'
 import Tooltip from './Tooltip.vue'
 import Image from './Menus/Image.vue'
-import type { EditorOptions } from 'lib/types'
+import type { EditorOptions } from '../types'
 
 const props = defineProps<{
   options?: EditorOptions

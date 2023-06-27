@@ -5,16 +5,19 @@
     "src/**/*",
     "src/**/*.vue",
     "lib/**/*",
-    "lib/**/*.vue"
+    "lib/**/*.vue",
+    "lib/types.ts"
   ],
   "exclude": [
-    "src/**/__tests__/*"
+    "src/**/__tests__/*",
+    "src/App.vue",
+    "src/main.ts"
+  ],
+  "files": [
+    "lib/types.ts"
   ],
   "compilerOptions": {
     "composite": true,
-    "declaration": true,
-    "noEmit": false,
-    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": [

@@ -1,4 +1,4 @@
-declare module '@tiptap/vue-3' {
+declare module '@tiptap/core' {
     interface Commands<ReturnType> {
         uploadableImage: {
             setImageWithId: (id: string, src: string) => ReturnType,

@@ -1,10 +1,9 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import UnoCSS from 'unocss/vite'
 import transformerDirectives from '@unocss/transformer-directives'
+import dts from "vite-plugin-dts"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,12 +22,6 @@ export default defineConfig({
       }
     }
   },
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      'lib': fileURLToPath(new URL('./lib', import.meta.url)),
-    }
-  },
   optimizeDeps: {
     exclude: ['oh-vue-icons']
   },
@@ -44,6 +37,14 @@ export default defineConfig({
           include: [/\.(vue|ts|html)($|\?)/]
         }
       }
+    }),
+    dts({
+      // include: [resolve(__dirname, "lib/types.d.ts")],
+      // tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
+      tsConfigFilePath: resolve(__dirname, "tsconfig.app.json"),
+      insertTypesEntry: true,
+      entryRoot: resolve(__dirname),
+      skipDiagnostics: true,
     })
   ],
 })
