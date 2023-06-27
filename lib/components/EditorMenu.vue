@@ -2,9 +2,10 @@
 import EditorButton from './EditorButton.vue'
 import EditorFontType from './Menus/EditorFontType.vue'
 import MenuWrapper from './MenuWrapper.vue'
-import Tooltip from './Tooltip.vue'
 import Image from './Menus/Image.vue'
 import type { EditorOptions } from '../types'
+import Color from './Menus/Color.vue'
+import FontStyle from './Menus/FontStyle.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -15,19 +16,9 @@ const props = defineProps<{
   <div
     class="bg-slate-100 md:rounded-lg rounded-xl 2xl:rounded-full py-1 px-2 flex items-center flex-wrap gap-5"
   >
-    <MenuWrapper>
-      <EditorFontType />
-    </MenuWrapper>
-    <MenuWrapper class="relative">
-      <input type="color" class="peer border-none rounded-full w-8 h-8" />
-      <Tooltip activator="peer-hover:opacity-100" position="-left-2 top-5">Color</Tooltip>
-    </MenuWrapper>
-    <MenuWrapper>
-      <EditorButton icon="ri-bold" name="Bold" />
-      <EditorButton icon="ri-italic" name="Italic" />
-      <EditorButton icon="ri-underline" name="Underline" />
-      <EditorButton icon="ri-strikethrough" name="Strike Through" />
-    </MenuWrapper>
+    <EditorFontType />
+    <Color />
+    <FontStyle />
     <div class="flex gap-2 md:gap-5">
       <MenuWrapper>
         <EditorButton icon="ri-align-left" name="Align Left" />
