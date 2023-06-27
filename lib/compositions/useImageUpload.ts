@@ -4,7 +4,7 @@ import type { EditorOptions } from "lib/types"
 import { inject, type Ref } from "vue"
 
 export default function useImageUpload(options?: EditorOptions['image']) {
-const editor = inject(EDITOR_KEY) as Ref<Editor>
+const editor = inject<Ref<Editor>>(EDITOR_KEY)
 
 const base64StringHandler = async (file: File) => {
     const buffer = await file.arrayBuffer()
@@ -12,7 +12,7 @@ const base64StringHandler = async (file: File) => {
     const base64 = btoa(
       new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
     )
-    editor.value
+    editor?.value
       .chain()
       .focus()
       .setImage({ src: `data:image/png;base64,${base64}` })
@@ -52,7 +52,7 @@ const base64StringHandler = async (file: File) => {
         throw new Error('Expected image to be a object with:"url=string,id=string"')
       }
   
-      editor.value.chain().focus().setImageWithId(data.image.id, data.image.url).run()
+      editor?.value.chain().focus().setImageWithId(data.image.id, data.image.url).run()
     } catch (err: unknown) {
       console.error(err)
     }
@@ -61,7 +61,7 @@ const base64StringHandler = async (file: File) => {
   const appendImage = async (e: Event) => {
     const val = e.target as HTMLInputElement
   
-    if (!val.files || val.files.length <= 0 || !editor.value) return
+    if (!val.files || val.files.length <= 0 || !editor?.value) return
   
     if (options?.strategy !== 'url') {
       return await base64StringHandler(val.files[0])
