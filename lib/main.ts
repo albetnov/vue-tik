@@ -26,7 +26,10 @@ import {
   RiWindowLine,
   RiCodeLine,
   RiCodeBoxLine,
-  RiDoubleQuotesL
+  RiDoubleQuotesL,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+  RiArrowRightSLine
 } from 'oh-vue-icons/icons'
 import 'uno.css'
 import { EDITOR_CONFIG} from "./keys"
@@ -56,7 +59,10 @@ addIcons(
   RiWindowLine,
   RiCodeLine,
   RiCodeBoxLine,
-  RiDoubleQuotesL
+  RiDoubleQuotesL,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+  RiArrowRightSLine
 )
 
 const Editor = {

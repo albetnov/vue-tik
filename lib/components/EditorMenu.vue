@@ -2,10 +2,10 @@
 import EditorButton from './EditorButton.vue'
 import EditorFontType from './Menus/EditorFontType.vue'
 import MenuWrapper from './MenuWrapper.vue'
-import Image from './Menus/Image.vue'
 import type { EditorOptions } from '../types'
 import Color from './Menus/Color.vue'
 import FontStyle from './Menus/FontStyle.vue'
+import Extras from './Menus/Extras.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -31,14 +31,7 @@ const props = defineProps<{
         <EditorButton icon="ri-task-line" name="Task List" />
       </MenuWrapper>
     </div>
-    <MenuWrapper>
-      <EditorButton icon="ri-code-line" name="Code" />
-      <EditorButton icon="ri-code-box-line" name="Code Snippet" />
-      <Image :options="props.options?.image" />
-      <EditorButton icon="ri-table-line" name="Tables" />
-      <EditorButton icon="ri-divide-line" name="Divider" />
-      <EditorButton icon="ri-double-quotes-l" name="Blockquote" />
-    </MenuWrapper>
+    <Extras :image-options="props.options?.image" />
     <MenuWrapper>
       <EditorButton icon="ri-youtube-line" name="Youtube" />
       <EditorButton icon="ri-twitter-line" name="Twitter" />
