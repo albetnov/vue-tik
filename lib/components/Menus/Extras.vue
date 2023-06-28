@@ -18,7 +18,12 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
 
 <template>
   <MenuWrapper>
-    <EditorButton icon="ri-code-line" name="Code" />
+    <EditorButton
+      icon="ri-code-line"
+      name="Code"
+      @click="editor?.chain().focus().toggleCode().run()"
+      :active="editor?.isActive('code')"
+    />
     <CodeBlock :editor="editor" />
     <Image :options="props?.imageOptions" />
     <EditorButton icon="ri-table-line" name="Tables" />
