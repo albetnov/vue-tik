@@ -14,7 +14,7 @@ const emits = defineEmits<{
 }>()
 
 const classes = [
-  'bg-transparent focus:outline-none focus:ring flex gap-7 items-center hover:bg-slate-50 transition-colors duration-200 hover:cursor-pointer rounded-lg p-2',
+  'w-full bg-transparent focus:outline-none focus:ring flex gap-7 items-center hover:bg-slate-50 transition-colors duration-200 hover:cursor-pointer rounded-lg p-2',
   { 'border-none focus:ring-slate-200': !props.active },
   { 'border border-solid border-slate-200 focus:ring-stone-200': props.active }
 ]

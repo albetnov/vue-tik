@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, inject, type Ref } from 'vue'
 import EditorFontTypeItem from './EditorFontTypeItem.vue'
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { PopoverButton } from '@headlessui/vue'
 import type { Editor } from '@tiptap/vue-3'
 import { EDITOR_KEY, FontTypes } from '../../keys'
 import Tooltip from '../Tooltip.vue'
 import MenuWrapper from '../MenuWrapper.vue'
+import EditorPopover from '../EditorPopover.vue'
 
 const editor = inject(EDITOR_KEY) as Ref<Editor>
 
@@ -40,16 +41,16 @@ const editorState = computed(() => {
 
 <template>
   <MenuWrapper>
-    <Popover class="relative">
-      <PopoverButton
-        class="bg-transparent peer hover:cursor-pointer border-none focus:outline-none flex justify-between py-2 px-5"
-      >
-        <span>{{ editorState }}</span>
-        <v-icon name="ri-arrow-drop-down-line"></v-icon>
-      </PopoverButton>
-      <PopoverPanel
-        class="absolute bg-white border border-solid border-slate-400 p-3 rounded-lg z-10"
-      >
+    <EditorPopover class="py-3 px-4">
+      <template #button>
+        <PopoverButton
+          class="bg-transparent peer hover:cursor-pointer border-none focus:outline-none flex justify-between py-2 px-5"
+        >
+          <span>{{ editorState }}</span>
+          <v-icon name="ri-arrow-drop-down-line"></v-icon>
+        </PopoverButton>
+      </template>
+      <template #default>
         <EditorFontTypeItem
           name="Paragraph"
           :value="FontTypes.paragraph"
@@ -74,8 +75,8 @@ const editorState = computed(() => {
           @click="onCurrentChange"
           :active="editor.isActive('heading', { level: 2 })"
         />
-      </PopoverPanel>
-      <Tooltip :compact="false" activator="peer-hover:opacity-100">Change Font Type</Tooltip>
-    </Popover>
+        <Tooltip :compact="false" activator="peer-hover:opacity-100">Change Font Type</Tooltip>
+      </template>
+    </EditorPopover>
   </MenuWrapper>
 </template>

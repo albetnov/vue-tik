@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
 import { ref } from 'vue'
-import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-import PopoverEditorButton from '../PopoverEditorButton.vue'
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption,
+  PopoverButton
+} from '@headlessui/vue'
 import EditorPopover from '../EditorPopover.vue'
 import PrimaryButton from '../PrimaryButton.vue'
+import EditorButton from '../EditorButton.vue'
 
 const props = defineProps<{
   editor?: Editor
@@ -26,11 +32,13 @@ const selectedLang = ref(langs[0])
 <template>
   <EditorPopover class="py-2 px-3">
     <template #button>
-      <PopoverEditorButton
-        icon="ri-code-box-line"
-        :active="props.editor?.isActive('codeBlock')"
-        name="Codeblock"
-      ></PopoverEditorButton>
+      <PopoverButton as="template">
+        <EditorButton
+          icon="ri-code-box-line"
+          :active="props.editor?.isActive('codeBlock')"
+          name="CodeBlock"
+        />
+      </PopoverButton>
     </template>
     <template #default>
       <p class="font-medium text-lg">Select Codeblock Language</p>
