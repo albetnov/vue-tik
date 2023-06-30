@@ -19,7 +19,7 @@ const props = defineProps<{
       }
     ]"
   >
-    <v-icon name="ri-code-box-line"></v-icon>
+    <v-icon :name="props.icon"></v-icon>
     <Tooltip>{{ props.name }}</Tooltip>
   </PopoverButton>
 </template>

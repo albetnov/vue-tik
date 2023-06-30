@@ -33,6 +33,7 @@ const props = defineProps<{
     </div>
     <Extras :image-options="props.options?.image" />
     <MenuWrapper>
+      <EditorButton icon="ri-links-line" name="Link" />
       <EditorButton icon="ri-youtube-line" name="Youtube" />
       <EditorButton icon="ri-twitter-line" name="Twitter" />
       <EditorButton icon="ri-window-line" name="Embed Frame" />

@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
 import PopoverEditorButton from '../PopoverEditorButton.vue'
 import EditorPopover from '../EditorPopover.vue'
+import PrimaryButton from '../PrimaryButton.vue'
 
 const props = defineProps<{
   editor?: Editor
@@ -58,8 +59,8 @@ const selectedLang = ref(langs[0])
           </ListboxOption>
         </ListboxOptions>
       </Listbox>
-      <button
-        class="mt-5 py-2 px-5 rounded-lg bg-transparent border border-solid border-slate-400 hover:bg-zinc-600 hover:text-slate-100 hover:cursor-pointer"
+      <PrimaryButton
+        class="mt-3 py-2 px-4"
         @click="
           props.editor
             ?.chain()
@@ -74,8 +75,8 @@ const selectedLang = ref(langs[0])
             .run()
         "
       >
-        Save
-      </button>
+        {{ props.editor?.isActive('codeBlock') ? 'Disable' : 'Save' }}
+      </PrimaryButton>
     </template>
   </EditorPopover>
 </template>

@@ -1,6 +1,6 @@
-import {type App } from "vue"
-import EditorView from "./components/Editor.vue"
-import { OhVueIcon } from "oh-vue-icons"
+import { type App } from 'vue'
+import EditorView from './components/Editor.vue'
+import { OhVueIcon } from 'oh-vue-icons'
 import { addIcons } from 'oh-vue-icons'
 import {
   RiBold,
@@ -29,11 +29,13 @@ import {
   RiDoubleQuotesL,
   RiArrowDownSLine,
   RiArrowUpSLine,
-  RiArrowRightSLine
+  RiArrowRightSLine,
+  RiMarkPenLine,
+  RiLinksLine
 } from 'oh-vue-icons/icons'
 import 'uno.css'
-import { EDITOR_CONFIG} from "./keys"
-import type { EditorOptions } from "./types"
+import { EDITOR_CONFIG } from './keys'
+import type { EditorOptions } from './types'
 
 addIcons(
   RiBold,
@@ -62,15 +64,18 @@ addIcons(
   RiDoubleQuotesL,
   RiArrowDownSLine,
   RiArrowUpSLine,
-  RiArrowRightSLine
+  RiArrowRightSLine,
+  RiMarkPenLine,
+  RiLinksLine
 )
 
 const Editor = {
-    install(app: App, options?: EditorOptions) {
-        app.component("vue-editor", EditorView)
-        .component("v-icon", OhVueIcon)
-        .provide(EDITOR_CONFIG, options)
-    }
+  install(app: App, options?: EditorOptions) {
+    app
+      .component('vue-editor', EditorView)
+      .component('v-icon', OhVueIcon)
+      .provide(EDITOR_CONFIG, options)
+  }
 }
 
 export default Editor

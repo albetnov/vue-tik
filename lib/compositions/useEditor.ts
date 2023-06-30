@@ -16,6 +16,7 @@ import Bold from '@tiptap/extension-bold'
 import Italic from '@tiptap/extension-italic'
 import Strike from '@tiptap/extension-strike'
 import Code from '@tiptap/extension-code'
+import Highlight from '@tiptap/extension-highlight'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -32,12 +33,14 @@ export default function useEditor(config?: EditorOptions) {
       Underline,
       Strike,
       UploadableImage.configure({
-        allowBase64: options?.image.strategy !== 'url'
+        allowBase64: options?.image.strategy !== 'upload',
+        bindImageId: options?.image.bindId ?? true
       }),
       TextStyle,
       Color,
       CodeBlockLowlight.configure({ lowlight }),
-      Code
+      Code,
+      Highlight
     ]
   })
 

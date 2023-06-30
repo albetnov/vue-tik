@@ -19,6 +19,12 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
 <template>
   <MenuWrapper>
     <EditorButton
+      icon="ri-mark-pen-line"
+      name="Highlight"
+      @click="editor?.chain().focus().toggleHighlight().run()"
+      :active="editor?.isActive('highlight')"
+    />
+    <EditorButton
       icon="ri-code-line"
       name="Code"
       @click="editor?.chain().focus().toggleCode().run()"

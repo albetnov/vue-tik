@@ -1,17 +1,21 @@
 declare module '@tiptap/core' {
-    interface Commands<ReturnType> {
-        uploadableImage: {
-            setImageWithId: (id: string, src: string) => ReturnType,
-        }
+  interface Commands<ReturnType> {
+    uploadableImage: {
+      setImageWithId: (
+        id: string,
+        options: { src: string; alt?: string; title?: string }
+      ) => ReturnType
     }
+  }
 }
 
 export interface EditorOptions {
-    image: {
-        strategy: 'base64' | "url",
-        url?: string
-        requests?: object
-        headers?: HeadersInit
-    },
-    initialValue?: string
+  image: {
+    strategy: 'string' | 'upload'
+    url?: string
+    requests?: object
+    headers?: HeadersInit
+    bindId?: boolean
+  }
+  initialValue?: string
 }
