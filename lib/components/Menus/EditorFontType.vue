@@ -50,7 +50,7 @@ const editorState = computed(() => {
           <v-icon name="ri-arrow-drop-down-line"></v-icon>
         </PopoverButton>
       </template>
-      <template #default>
+      <template #panel>
         <EditorFontTypeItem
           name="Paragraph"
           :value="FontTypes.paragraph"
@@ -75,6 +75,8 @@ const editorState = computed(() => {
           @click="onCurrentChange"
           :active="editor.isActive('heading', { level: 2 })"
         />
+      </template>
+      <template #default>
         <Tooltip :compact="false" activator="peer-hover:opacity-100">Change Font Type</Tooltip>
       </template>
     </EditorPopover>

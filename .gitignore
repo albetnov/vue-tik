@@ -29,3 +29,5 @@ coverage
 
 # Development Testing
 src
+public
+index.html

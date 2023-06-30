@@ -40,7 +40,7 @@ const selectedLang = ref(langs[0])
         />
       </PopoverButton>
     </template>
-    <template #default>
+    <template #panel>
       <p class="font-medium text-lg">Select Codeblock Language</p>
       <Listbox v-model="selectedLang" v-slot="{ open }">
         <ListboxButton
