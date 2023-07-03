@@ -17,6 +17,7 @@ import Code from '@tiptap/extension-code'
 import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import ExtendedCodeBlock from '../plugins/ExtendedCodeBlock'
+import TextAlign from '@tiptap/extension-text-align'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -45,7 +46,10 @@ export default function useEditor(config?: EditorOptions) {
         }
       }),
       Highlight,
-      Typography
+      Typography,
+      TextAlign.configure({
+        types: ['heading', 'paragraph']
+      })
     ]
   })
 

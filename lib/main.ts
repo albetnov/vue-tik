@@ -31,7 +31,8 @@ import {
   RiArrowUpSLine,
   RiArrowRightSLine,
   RiMarkPenLine,
-  RiLinksLine
+  RiLinksLine,
+  RiAlignJustify
 } from 'oh-vue-icons/icons'
 import 'uno.css'
 import { EDITOR_CONFIG } from './keys'
@@ -47,6 +48,7 @@ addIcons(
   RiAlignLeft,
   RiAlignRight,
   RiAlignCenter,
+  RiAlignJustify,
   RiArrowDropDownLine,
   RiParagraph,
   RiHeading,

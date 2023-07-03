@@ -6,6 +6,7 @@ import type { EditorOptions } from '../types'
 import Color from './Menus/Color.vue'
 import FontStyle from './Menus/FontStyle.vue'
 import Extras from './Menus/Extras.vue'
+import TextAlign from './Menus/TextAlign.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -20,11 +21,7 @@ const props = defineProps<{
     <Color />
     <FontStyle />
     <div class="flex gap-2 md:gap-5">
-      <MenuWrapper>
-        <EditorButton icon="ri-align-left" name="Align Left" />
-        <EditorButton icon="ri-align-center" name="Align Center" />
-        <EditorButton icon="ri-align-right" name="Align Right" />
-      </MenuWrapper>
+      <TextAlign />
       <MenuWrapper>
         <EditorButton icon="ri-list-ordered" name="Number List" />
         <EditorButton icon="ri-list-unordered" name="Bullet List" />
