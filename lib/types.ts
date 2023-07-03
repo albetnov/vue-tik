@@ -1,6 +1,6 @@
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
-    uploadableImage: {
+    extendedImage: {
       setImageWithId: (
         id: string,
         options: { src: string; alt?: string; title?: string }

@@ -31,17 +31,4 @@ provide(EDITOR_KEY, props.config.editor)
 .ProseMirror:focus {
   @apply outline-none ring ring-slate-200;
 }
-
-.ProseMirror pre {
-  @apply bg-zinc-700 rounded-lg p-3 text-slate-200 relative;
-}
-
-.ProseMirror pre code {
-  @apply font-medium;
-  font-size: 0.9rem;
-}
-
-.ProseMirror code {
-  @apply bg-zinc-700 rounded text-sky-300 py-1 px-2;
-}
 </style>

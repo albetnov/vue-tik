@@ -7,7 +7,6 @@ import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import { EDITOR_KEY } from '../../keys'
 import EditorButton from '../EditorButton.vue'
-import CodeBlock from './CodeBlock.vue'
 
 const props = defineProps<{
   imageOptions?: EditorOptions['image']
@@ -30,7 +29,12 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
       @click="editor?.chain().focus().toggleCode().run()"
       :active="editor?.isActive('code')"
     />
-    <CodeBlock :editor="editor" />
+    <EditorButton
+      icon="ri-code-box-line"
+      name="Codeblock"
+      @click="editor?.chain().focus().toggleCodeBlock().run()"
+      :active="editor?.isActive('codeBlock')"
+    />
     <Image :options="props?.imageOptions" />
     <EditorButton icon="ri-table-line" name="Tables" />
     <EditorButton icon="ri-divide-line" name="Divider" />

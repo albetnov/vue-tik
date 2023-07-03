@@ -2,12 +2,10 @@ import { EDITOR_CONFIG } from '../keys'
 import type { EditorOptions } from '../types'
 import { inject } from 'vue'
 import { useEditor as useTiptapEditor } from '@tiptap/vue-3'
-import UploadableImage from '../plugins/UploadableImage'
+import ExtendedImage from '../plugins/ExtendedImage'
 import Color from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
-import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
-import lowlight from '../plugins/lowlight'
 import Document from '@tiptap/extension-document'
 import Text from '@tiptap/extension-text'
 import Paragraph from '@tiptap/extension-paragraph'
@@ -17,6 +15,8 @@ import Italic from '@tiptap/extension-italic'
 import Strike from '@tiptap/extension-strike'
 import Code from '@tiptap/extension-code'
 import Highlight from '@tiptap/extension-highlight'
+import Typography from '@tiptap/extension-typography'
+import ExtendedCodeBlock from '../plugins/ExtendedCodeBlock'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -32,15 +32,20 @@ export default function useEditor(config?: EditorOptions) {
       Italic,
       Underline,
       Strike,
-      UploadableImage.configure({
+      ExtendedImage.configure({
         allowBase64: options?.image.strategy !== 'upload',
         bindImageId: options?.image.bindId ?? true
       }),
       TextStyle,
       Color,
-      CodeBlockLowlight.configure({ lowlight }),
-      Code,
-      Highlight
+      ExtendedCodeBlock,
+      Code.configure({
+        HTMLAttributes: {
+          class: 'bg-zinc-700 rounded text-sky-300 py-1 px-2'
+        }
+      }),
+      Highlight,
+      Typography
     ]
   })
 
