@@ -18,6 +18,11 @@ import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import ExtendedCodeBlock from '../plugins/ExtendedCodeBlock'
 import TextAlign from '@tiptap/extension-text-align'
+import ListItem from '@tiptap/extension-list-item'
+import OrderedList from '@tiptap/extension-ordered-list'
+import BulletList from '@tiptap/extension-bullet-list'
+import TaskList from '@tiptap/extension-task-list'
+import TaskItem from '@tiptap/extension-task-item'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -49,7 +54,12 @@ export default function useEditor(config?: EditorOptions) {
       Typography,
       TextAlign.configure({
         types: ['heading', 'paragraph']
-      })
+      }),
+      ListItem,
+      OrderedList,
+      BulletList,
+      TaskItem,
+      TaskList
     ]
   })
 

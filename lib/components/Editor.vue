@@ -31,4 +31,20 @@ provide(EDITOR_KEY, props.config.editor)
 .ProseMirror:focus {
   @apply outline-none ring ring-slate-200;
 }
+
+.ProseMirror ul[data-type='taskList'] {
+  @apply list-none p-0;
+}
+
+.ProseMirror ul[data-type='taskList'] p {
+  @apply m-0;
+}
+
+.ProseMirror ul[data-type='taskList'] li {
+  @apply flex;
+}
+
+.ProseMirror ul[data-type='taskList'] li > label {
+  @apply mr-1;
+}
 </style>
