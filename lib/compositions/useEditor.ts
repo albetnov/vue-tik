@@ -24,6 +24,7 @@ import BulletList from '@tiptap/extension-bullet-list'
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
 import Embed from '../plugins/Embed'
+import Twitter from '../plugins/Twitter'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -61,7 +62,8 @@ export default function useEditor(config?: EditorOptions) {
       BulletList,
       TaskItem,
       TaskList,
-      Embed
+      Embed,
+      Twitter
     ]
   })
 

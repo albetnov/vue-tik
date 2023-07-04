@@ -6,6 +6,7 @@ import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import { EDITOR_KEY } from '../../keys'
 import EmbedWindow from './EmbedWindow.vue'
+import EmbedTwitter from './EmbedTwitter.vue'
 
 const editor = inject<Ref<Editor>>(EDITOR_KEY)
 </script>
@@ -14,7 +15,7 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
   <MenuWrapper>
     <EditorButton icon="ri-links-line" name="Link" />
     <EditorButton icon="ri-youtube-line" name="Youtube" />
-    <EditorButton icon="ri-twitter-line" name="Twitter" />
+    <EmbedTwitter :editor="editor" />
     <EmbedWindow :editor="editor" />
   </MenuWrapper>
 </template>

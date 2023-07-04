@@ -53,7 +53,7 @@ export default Node.create<EmbedOptions>({
   addCommands() {
     return {
       setIframe:
-        (options: { src: string }) =>
+        (options) =>
         ({ tr, dispatch }) => {
           const { selection } = tr
           const node = this.type.create(options)

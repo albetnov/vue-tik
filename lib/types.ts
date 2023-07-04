@@ -9,6 +9,9 @@ declare module '@tiptap/core' {
     embed: {
       setIframe: (options: { src: string }) => ReturnType
     }
+    twitter: {
+      setTwitter: (url: string) => ReturnType
+    }
   }
 }
 
@@ -21,4 +24,10 @@ export interface EditorOptions {
     bindId?: boolean
   }
   initialValue?: string
+}
+
+declare global {
+  interface Window {
+    twttr: any
+  }
 }

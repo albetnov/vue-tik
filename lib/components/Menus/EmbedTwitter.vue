@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { PopoverButton } from '@headlessui/vue'
 import EditorPopover from '../EditorPopover.vue'
-import EditorButton from '../EditorButton.vue'
-import PrimaryButton from '../PrimaryButton.vue'
 import EditorInput from '../EditorInput.vue'
-import type { Editor } from '@tiptap/vue-3'
+import PrimaryButton from '../PrimaryButton.vue'
 import { ref } from 'vue'
+import type { Editor } from '@tiptap/core'
+import EditorButton from '../EditorButton.vue'
 
 const props = defineProps<{
   editor?: Editor
@@ -15,19 +15,19 @@ const src = ref('')
 </script>
 
 <template>
-  <EditorPopover class="py-2 px-3">
+  <EditorPopover class="px-3 py-2"> 
     <template #button>
       <PopoverButton as="template">
-        <EditorButton icon="ri-window-line" name="Embed Frame" />
+        <EditorButton icon="ri-twitter-line" name="Twitter" />
       </PopoverButton>
     </template>
     <template #panel>
       <label>
-        Url:
-        <EditorInput type="text" v-model="src" placeholder="https://example.com" />
+        Twitter Url:
+        <EditorInput type="text" v-model="src" placeholder="https://twitter.com/..." />
       </label>
       <PrimaryButton
-        @click="props.editor?.chain().focus().setIframe({ src }).run()"
+        @click="props.editor?.chain().focus().setTwitter(src).run()"
         class="mt-5 py-2 px-5"
       >
         Save
