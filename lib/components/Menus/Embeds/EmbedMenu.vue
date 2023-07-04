@@ -12,7 +12,14 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
 
 <template>
   <MenuWrapper>
-    <EditorButton icon="ri-links-line" name="Link" />
+    <EmbedPopover
+      icon="ri-links-line"
+      name="Link"
+      label="Url"
+      placeholder="https://example.com/..."
+      @click="editor?.chain().focus().toggleLink({ href: $event }).run()"
+      :active="editor?.isActive('link')"
+    />
     <EmbedPopover
       icon="ri-youtube-line"
       name="Youtube"

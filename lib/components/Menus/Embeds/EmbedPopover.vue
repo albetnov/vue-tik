@@ -11,6 +11,7 @@ const props = defineProps<{
   name: string
   label: string
   placeholder: string
+  active?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -24,7 +25,7 @@ const src = ref('')
   <EditorPopover class="px-3 py-2">
     <template #button>
       <PopoverButton as="template">
-        <EditorButton :icon="props.icon" :name="props.name" />
+        <EditorButton :icon="props.icon" :name="props.name" :active="props.active" />
       </PopoverButton>
     </template>
     <template #panel>

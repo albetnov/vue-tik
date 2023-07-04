@@ -26,6 +26,7 @@ import TaskItem from '@tiptap/extension-task-item'
 import Youtube from '@tiptap/extension-youtube'
 import Embed from '../plugins/Embed'
 import Twitter from '../plugins/Twitter'
+import Link from '@tiptap/extension-link'
 
 export default function useEditor(config?: EditorOptions) {
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
@@ -65,7 +66,8 @@ export default function useEditor(config?: EditorOptions) {
       TaskList,
       Embed,
       Twitter,
-      Youtube
+      Youtube,
+      Link
     ]
   })
 
