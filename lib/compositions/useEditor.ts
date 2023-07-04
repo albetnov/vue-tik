@@ -1,6 +1,6 @@
 import { EDITOR_CONFIG } from '../keys'
 import type { EditorOptions } from '../types'
-import { inject } from 'vue'
+import { inject, provide } from 'vue'
 import { useEditor as useTiptapEditor } from '@tiptap/vue-3'
 import ExtendedImage from '../plugins/ExtendedImage'
 import Color from '@tiptap/extension-color'
@@ -29,6 +29,10 @@ import Twitter from '../plugins/Twitter'
 import Link from '@tiptap/extension-link'
 
 export default function useEditor(config?: EditorOptions) {
+  if (config) {
+    provide(EDITOR_CONFIG, config)
+  }
+
   const options = config ? config : inject<EditorOptions>(EDITOR_CONFIG)
 
   const editor = useTiptapEditor({
@@ -54,7 +58,9 @@ export default function useEditor(config?: EditorOptions) {
           class: 'bg-zinc-700 rounded text-sky-300 py-1 px-2'
         }
       }),
-      Highlight,
+      Highlight.configure({
+        multicolor: true
+      }),
       Typography,
       TextAlign.configure({
         types: ['heading', 'paragraph']

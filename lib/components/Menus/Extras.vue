@@ -5,7 +5,7 @@ import MenuWrapper from '../MenuWrapper.vue'
 import Image from './Image.vue'
 import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
-import { EDITOR_KEY } from '../../keys'
+import { EDITOR_CONFIG, EDITOR_KEY } from '../../keys'
 import EditorButton from '../EditorButton.vue'
 
 const props = defineProps<{
@@ -13,6 +13,7 @@ const props = defineProps<{
 }>()
 
 const editor = inject<Ref<Editor>>(EDITOR_KEY)
+const config = inject<EditorOptions>(EDITOR_CONFIG)
 </script>
 
 <template>
@@ -20,7 +21,13 @@ const editor = inject<Ref<Editor>>(EDITOR_KEY)
     <EditorButton
       icon="ri-mark-pen-line"
       name="Highlight"
-      @click="editor?.chain().focus().toggleHighlight().run()"
+      @click="
+        editor
+          ?.chain()
+          .focus()
+          .toggleHighlight({ color: config?.highlight?.color ?? '#fde68a' })
+          .run()
+      "
       :active="editor?.isActive('highlight')"
     />
     <EditorButton

@@ -24,6 +24,9 @@ export interface EditorOptions {
     bindId?: boolean
   }
   initialValue?: string
+  highlight?: {
+    color?: string
+  }
 }
 
 declare global {
