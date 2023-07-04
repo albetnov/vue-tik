@@ -23,6 +23,7 @@ import OrderedList from '@tiptap/extension-ordered-list'
 import BulletList from '@tiptap/extension-bullet-list'
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
+import Youtube from '@tiptap/extension-youtube'
 import Embed from '../plugins/Embed'
 import Twitter from '../plugins/Twitter'
 
@@ -63,7 +64,8 @@ export default function useEditor(config?: EditorOptions) {
       TaskItem,
       TaskList,
       Embed,
-      Twitter
+      Twitter,
+      Youtube
     ]
   })
 

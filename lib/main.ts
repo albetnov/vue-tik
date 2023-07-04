@@ -33,7 +33,9 @@ import {
   RiMarkPenLine,
   RiLinksLine,
   RiAlignJustify,
-  RiCloseCircleLine
+  RiCloseCircleLine,
+  RiEraserLine,
+  RiSaveLine
 } from 'oh-vue-icons/icons'
 import 'uno.css'
 import { EDITOR_CONFIG } from './keys'
@@ -70,7 +72,9 @@ addIcons(
   RiArrowRightSLine,
   RiMarkPenLine,
   RiLinksLine,
-  RiCloseCircleLine
+  RiCloseCircleLine,
+  RiEraserLine,
+  RiSaveLine
 )
 
 const Editor = {

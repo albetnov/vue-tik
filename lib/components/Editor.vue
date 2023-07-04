@@ -47,4 +47,8 @@ provide(EDITOR_KEY, props.config.editor)
 .ProseMirror ul[data-type='taskList'] li > label {
   @apply mr-1;
 }
+
+.ProseMirror .ProseMirror-selectednode iframe {
+  @apply transition-all duration-300 ring-2 ring-zinc-500;
+}
 </style>

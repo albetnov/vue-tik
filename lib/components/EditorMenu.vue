@@ -8,7 +8,7 @@ import FontStyle from './Menus/FontStyle.vue'
 import Extras from './Menus/Extras.vue'
 import TextAlign from './Menus/TextAlign.vue'
 import ListItem from './Menus/ListItem.vue'
-import EmbedContent from './Menus/EmbedContent.vue'
+import EmbedMenu from './Menus/Embeds/EmbedMenu.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -27,8 +27,9 @@ const props = defineProps<{
       <ListItem />
     </div>
     <Extras :image-options="props.options?.image" />
-    <EmbedContent />
+    <EmbedMenu />
     <MenuWrapper>
+      <EditorButton icon="ri-eraser-line" name="Erase Selection" />
       <EditorButton icon="ri-arrow-go-back-fill" name="Undo" />
       <EditorButton icon="ri-arrow-go-forward-fill" name="Redo" />
     </MenuWrapper>
