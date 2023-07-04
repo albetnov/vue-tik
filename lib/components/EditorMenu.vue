@@ -8,6 +8,7 @@ import FontStyle from './Menus/FontStyle.vue'
 import Extras from './Menus/Extras.vue'
 import TextAlign from './Menus/TextAlign.vue'
 import ListItem from './Menus/ListItem.vue'
+import EmbedContent from './Menus/EmbedContent.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -26,12 +27,7 @@ const props = defineProps<{
       <ListItem />
     </div>
     <Extras :image-options="props.options?.image" />
-    <MenuWrapper>
-      <EditorButton icon="ri-links-line" name="Link" />
-      <EditorButton icon="ri-youtube-line" name="Youtube" />
-      <EditorButton icon="ri-twitter-line" name="Twitter" />
-      <EditorButton icon="ri-window-line" name="Embed Frame" />
-    </MenuWrapper>
+    <EmbedContent />
     <MenuWrapper>
       <EditorButton icon="ri-arrow-go-back-fill" name="Undo" />
       <EditorButton icon="ri-arrow-go-forward-fill" name="Redo" />

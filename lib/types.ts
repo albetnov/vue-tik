@@ -6,6 +6,9 @@ declare module '@tiptap/core' {
         options: { src: string; alt?: string; title?: string }
       ) => ReturnType
     }
+    embed: {
+      setIframe: (options: { src: string }) => ReturnType
+    }
   }
 }
 

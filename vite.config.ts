@@ -3,15 +3,17 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import UnoCSS from 'unocss/vite'
 import transformerDirectives from '@unocss/transformer-directives'
-import dts from "vite-plugin-dts"
+import dts from 'vite-plugin-dts'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
+import { presetUno } from 'unocss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
-      name: "VueEditor",
-      fileName: (format) => `vue-editor.${format}.js`,
+      name: 'VueEditor',
+      fileName: (format) => `vue-editor.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
@@ -29,22 +31,21 @@ export default defineConfig({
     vue(),
     UnoCSS({
       mode: 'global',
-      transformers: [
-        transformerDirectives()
-      ],
+      transformers: [transformerDirectives()],
       content: {
         pipeline: {
           include: [/\.(vue|ts|html)($|\?)/]
         }
-      }
+      },
+      presets: [presetUno(), presetScrollbar()]
     }),
     dts({
       // include: [resolve(__dirname, "lib/types.d.ts")],
       // tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
-      tsConfigFilePath: resolve(__dirname, "tsconfig.app.json"),
+      tsConfigFilePath: resolve(__dirname, 'tsconfig.app.json'),
       insertTypesEntry: true,
       entryRoot: resolve(__dirname),
-      skipDiagnostics: true,
+      skipDiagnostics: true
     })
-  ],
+  ]
 })
