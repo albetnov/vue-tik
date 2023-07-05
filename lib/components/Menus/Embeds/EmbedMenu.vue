@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { inject } from 'vue'
-import EditorButton from '../../EditorButton.vue'
 import MenuWrapper from '../../MenuWrapper.vue'
 import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'

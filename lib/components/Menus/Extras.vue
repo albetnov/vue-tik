@@ -44,7 +44,16 @@ const config = inject<EditorOptions>(EDITOR_CONFIG)
     />
     <Image :options="props?.imageOptions" />
     <EditorButton icon="ri-table-line" name="Tables" />
-    <EditorButton icon="ri-divide-line" name="Divider" />
-    <EditorButton icon="ri-double-quotes-l" name="Blockquote" />
+    <EditorButton
+      icon="ri-divide-line"
+      name="Divider"
+      @click="editor?.chain().focus().setHorizontalRule().run()"
+    />
+    <EditorButton
+      icon="ri-double-quotes-l"
+      name="Blockquote"
+      @click="editor?.chain().focus().toggleBlockquote().run()"
+      :active="editor?.isActive('blockquote')"
+    />
   </MenuWrapper>
 </template>

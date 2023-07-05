@@ -51,4 +51,12 @@ provide(EDITOR_KEY, props.config.editor)
 .ProseMirror .ProseMirror-selectednode iframe {
   @apply transition-all duration-300 ring-2 ring-zinc-500;
 }
+
+.ProseMirror hr.ProseMirror-selectednode {
+  @apply border-t border-solid border-zinc-600;
+}
+
+.ProseMirror blockquote {
+  @apply border-l border-l-solid border-l-zinc-500 pl-3 text-lg;
+}
 </style>

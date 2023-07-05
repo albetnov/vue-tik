@@ -27,6 +27,8 @@ import Youtube from '@tiptap/extension-youtube'
 import Embed from '../plugins/Embed'
 import Twitter from '../plugins/Twitter'
 import Link from '@tiptap/extension-link'
+import Blockquote from '@tiptap/extension-blockquote'
+import HorizontalRule from '@tiptap/extension-horizontal-rule'
 
 export default function useEditor(config?: EditorOptions) {
   if (config) {
@@ -73,7 +75,9 @@ export default function useEditor(config?: EditorOptions) {
       Embed,
       Twitter,
       Youtube,
-      Link
+      Link,
+      HorizontalRule,
+      Blockquote
     ]
   })
 
