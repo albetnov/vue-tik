@@ -16,8 +16,8 @@ declare module '@tiptap/core' {
 }
 
 export interface EditorOptions {
-  image: {
-    strategy: 'string' | 'upload'
+  image?: {
+    strategy?: 'string' | 'upload'
     url?: string
     requests?: object
     headers?: HeadersInit

@@ -40,6 +40,7 @@ import {
 import 'uno.css'
 import { EDITOR_CONFIG } from './keys'
 import type { EditorOptions } from './types'
+import useEditor from './compositions/useEditor'
 
 addIcons(
   RiBold,
@@ -80,10 +81,10 @@ addIcons(
 const Editor = {
   install(app: App, options?: EditorOptions) {
     app
-      .component('vue-editor', EditorView)
+      .component('vue-tik', EditorView)
       .component('v-icon', OhVueIcon)
       .provide(EDITOR_CONFIG, options)
   }
 }
 
-export default Editor
+export { useEditor, Editor }

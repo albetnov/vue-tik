@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import UnoCSS from 'unocss/vite'
 import transformerDirectives from '@unocss/transformer-directives'
-import dts from 'vite-plugin-dts'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { presetUno } from 'unocss'
 
@@ -11,9 +10,9 @@ import { presetUno } from 'unocss'
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
+      entry: resolve(__dirname, 'lib/vue-tik.ts'),
       name: 'VueEditor',
-      fileName: (format) => `vue-editor.${format}.js`
+      formats: ['es', 'umd']
     },
     rollupOptions: {
       external: ['vue'],
@@ -38,14 +37,6 @@ export default defineConfig({
         }
       },
       presets: [presetUno(), presetScrollbar()]
-    }),
-    dts({
-      // include: [resolve(__dirname, "lib/types.d.ts")],
-      // tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
-      tsConfigFilePath: resolve(__dirname, 'tsconfig.app.json'),
-      insertTypesEntry: true,
-      entryRoot: resolve(__dirname),
-      skipDiagnostics: true
     })
   ]
 })

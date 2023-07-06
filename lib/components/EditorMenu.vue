@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import EditorButton from './EditorButton.vue'
 import EditorFontType from './Menus/EditorFontType.vue'
-import MenuWrapper from './MenuWrapper.vue'
 import type { EditorOptions } from '../types'
 import Color from './Menus/Color.vue'
 import FontStyle from './Menus/FontStyle.vue'

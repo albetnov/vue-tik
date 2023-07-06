@@ -54,8 +54,8 @@ export default function useEditor(config?: EditorOptions) {
       Underline,
       Strike,
       ExtendedImage.configure({
-        allowBase64: options?.image.strategy !== 'upload',
-        bindImageId: options?.image.bindId ?? true
+        allowBase64: options?.image?.strategy !== 'upload',
+        bindImageId: options?.image?.bindId ?? true
       }),
       TextStyle,
       Color,
