@@ -9,6 +9,7 @@ import Extras from './Menus/Extras.vue'
 import TextAlign from './Menus/TextAlign.vue'
 import ListItem from './Menus/ListItem.vue'
 import EmbedMenu from './Menus/Embeds/EmbedMenu.vue'
+import History from './Menus/History.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -28,10 +29,6 @@ const props = defineProps<{
     </div>
     <Extras :image-options="props.options?.image" />
     <EmbedMenu />
-    <MenuWrapper>
-      <EditorButton icon="ri-eraser-line" name="Erase Selection" />
-      <EditorButton icon="ri-arrow-go-back-fill" name="Undo" />
-      <EditorButton icon="ri-arrow-go-forward-fill" name="Redo" />
-    </MenuWrapper>
+    <History />
   </div>
 </template>

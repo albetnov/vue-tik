@@ -33,6 +33,7 @@ import TableRow from '@tiptap/extension-table-row'
 import TableHeader from '@tiptap/extension-table-header'
 import TableCell from '@tiptap/extension-table-cell'
 import Table from '@tiptap/extension-table'
+import History from '@tiptap/extension-history'
 
 export default function useEditor(config?: EditorOptions) {
   if (config) {
@@ -87,7 +88,8 @@ export default function useEditor(config?: EditorOptions) {
       TableCell,
       Table.configure({
         resizable: true
-      })
+      }),
+      History
     ]
   })
 
