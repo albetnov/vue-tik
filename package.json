@@ -1,6 +1,20 @@
 {
   "name": "vue-tik",
   "version": "1.0.0",
+  "author": {
+    "email": "ryxinfrvr@gmail.com",
+    "name": "Albet Novendo",
+    "url": "https://github.com/albetnov"
+  },
+  "description": "Opinionated Tiptap Vue Wrapper Editor",
+  "license": "MIT",
+  "keywords": [
+    "editor",
+    "vue",
+    "vue-editor",
+    "vue editor",
+    "tiptap"
+  ],
   "private": false,
   "scripts": {
     "dev": "vite",
