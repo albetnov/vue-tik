@@ -29,6 +29,10 @@ import Twitter from '../plugins/Twitter'
 import Link from '@tiptap/extension-link'
 import Blockquote from '@tiptap/extension-blockquote'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
+import TableRow from '@tiptap/extension-table-row'
+import TableHeader from '@tiptap/extension-table-header'
+import TableCell from '@tiptap/extension-table-cell'
+import Table from '@tiptap/extension-table'
 
 export default function useEditor(config?: EditorOptions) {
   if (config) {
@@ -77,7 +81,13 @@ export default function useEditor(config?: EditorOptions) {
       Youtube,
       Link,
       HorizontalRule,
-      Blockquote
+      Blockquote,
+      TableRow,
+      TableHeader,
+      TableCell,
+      Table.configure({
+        resizable: true
+      })
     ]
   })
 

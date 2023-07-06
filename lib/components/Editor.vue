@@ -59,4 +59,31 @@ provide(EDITOR_KEY, props.config.editor)
 .ProseMirror blockquote {
   @apply border-l border-l-solid border-l-zinc-500 pl-3 text-lg;
 }
+
+.ProseMirror table {
+  @apply border-collapse table-fixed w-full m-0 overflow-hidden;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  @apply min-w-[1em] border border-solid border-slate-400 align-top box-border relative;
+}
+
+.ProseMirror table td p,
+.ProseMirror table th p {
+  @apply mx-3 my-2;
+}
+
+.ProseMirror table th p {
+  @apply text-lg;
+}
+
+.ProseMirror table td > *,
+.ProseMirror table th > * {
+  @apply mb-0;
+}
+
+.ProseMirror th {
+  @apply font-bold text-left bg-slate-100;
+}
 </style>

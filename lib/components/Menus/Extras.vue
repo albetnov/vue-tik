@@ -7,6 +7,7 @@ import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import { EDITOR_CONFIG, EDITOR_KEY } from '../../keys'
 import EditorButton from '../EditorButton.vue'
+import Tables from './Tables.vue'
 
 const props = defineProps<{
   imageOptions?: EditorOptions['image']
@@ -43,7 +44,7 @@ const config = inject<EditorOptions>(EDITOR_CONFIG)
       :active="editor?.isActive('codeBlock')"
     />
     <Image :options="props?.imageOptions" />
-    <EditorButton icon="ri-table-line" name="Tables" />
+    <Tables :editor="editor" />
     <EditorButton
       icon="ri-divide-line"
       name="Divider"
