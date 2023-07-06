@@ -1,4 +1,4 @@
-# Vue Tap
+# Vue Tik
 
 A Opinionated Tiptap Vue Wrapper Editor. This project is simply a wrapper for Tiptap with predesigned and preinstalled module
 and of course some opinionated customization.
