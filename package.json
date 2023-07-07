@@ -8,6 +8,10 @@
   },
   "description": "Opinionated Tiptap Vue Wrapper Editor",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albetnov/vue-tik"
+  },
   "keywords": [
     "editor",
     "vue",

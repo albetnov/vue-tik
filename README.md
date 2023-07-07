@@ -3,7 +3,7 @@
 A Opinionated Tiptap Vue Wrapper Editor. This project is simply a wrapper for Tiptap with predesigned and preinstalled module
 and of course some opinionated customization.
 
-Built on top of [UnoCSS](unocss.dev) and [Headless UI](https://headlessui.com) and of course [Tiptap](tiptap.dev).
+Built on top of [UnoCSS](unocss.dev), [Headless UI](https://headlessui.com), and of course [Tiptap](tiptap.dev).
 
 # Installation
 
@@ -65,7 +65,7 @@ const { editor } = useEditor({
 })
 ```
 
-> Using local configuration will override the entire global configuration.
+> Using local configuration will override the current global configuration for the component.
 
 Here's the full configuration schema:
 
@@ -114,7 +114,7 @@ const { Editor } = useEditor({
 })
 ```
 
-And there you. The upload will use `POST` using `form-data`, and this is the response VueTik will expect from your API:
+The upload will use `POST` using `form-data`, and this is the response VueTik will expect from your API:
 
 ```json
 {
@@ -139,7 +139,7 @@ The editor integration requires you to register the peer dependency in order to 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
 
-> There's still a limitation for twitter integeration. Currently if you use `getContent` or `getContentJson` the twitter node will only return div with data-twitter-id attribute.
+> There's still a limitation for twitter integeration. Currently if you use `getContent` or `getContentJson` the twitter node will only return div with data-twitter-id attribute. This means you have to hydrate it manually using the createTwitter API.
 
 # Rendering VueTik
 
@@ -150,7 +150,7 @@ To render the result of VueTik you can use api from `useEditor`:
 
 Alternatively, you can also use the editor itself [Tiptap Docs](https://tiptap.dev/guide/output#option-1-read-only-instance-of-tiptap). The `useEditor` also exposed the API of the original Tiptap's Editor.
 
-Example:
+Here's the example:
 
 ```typescript
 const { editor } = useEditor()
@@ -160,6 +160,6 @@ onMounted(() => {
 })
 ```
 
-> Even though you can do above tips, I am still unsure if the menu will also gone? Perhaps I should provide the official API to perform that. Well that's a plan for sure.
+> Even though you can do above example, I am still unsure if the menu will also gone? Perhaps I should provide the official API to perform that. Well that's a plan for sure.
 
 The recommended way is of course to use the content from `getContent` or `getContentJson` API and transforms it manually or use Server Side Integration to do it automatically for you (Coming Soon).
