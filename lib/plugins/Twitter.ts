@@ -7,6 +7,8 @@ const Twitter = Node.create<{
 }>({
   name: 'twitter',
   group: 'block',
+  content: 'block*',
+  atom: true,
 
   addOptions() {
     return {
@@ -17,7 +19,7 @@ const Twitter = Node.create<{
   parseHTML() {
     return [
       {
-        tag: 'div[data-twitter-id]'
+        tag: 'div[data-twitter-id][data-twitter-url]'
       }
     ]
   },
@@ -25,6 +27,9 @@ const Twitter = Node.create<{
   addAttributes() {
     return {
       'data-twitter-id': {
+        default: null
+      },
+      'data-twitter-url': {
         default: null
       }
     }
@@ -35,7 +40,7 @@ const Twitter = Node.create<{
       setTwitter:
         (url) =>
         ({ dispatch, tr }) => {
-          const node = this.type.create({ 'data-twitter-id': url })
+          const node = this.type.create({ 'data-twitter-url': url })
 
           if (dispatch) {
             tr.replaceRangeWith(tr.selection.from, tr.selection.to, node)

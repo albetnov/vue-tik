@@ -19,9 +19,9 @@ onMounted(async () => {
       return
     }
 
-    const url = props.node.attrs['data-twitter-id']
+    const url = props.node.attrs['data-twitter-url']
     const id = url.match(/\/status\/(\d+)/)[1]
-    await window.twttr.widgets.load(document.querySelector('div[data-twitter-id]'))
+    await window.twttr.widgets.load(tweetContainer.value)
     await window.twttr.widgets.createTweet(id, tweetContainer.value, {
       theme: 'light'
     })
