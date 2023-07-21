@@ -2,6 +2,7 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import type { NodeViewProps } from '@tiptap/core'
 import { NodeViewContent, NodeViewWrapper } from '@tiptap/vue-3'
+import { OhVueIcon } from 'oh-vue-icons'
 import { computed } from 'vue'
 
 const props = defineProps<NodeViewProps>()
@@ -41,8 +42,8 @@ const selectedLang = computed<Language>({
         class="absolute top-3 right-2 bg-white text-slate-700 py-2 px-4 shadow rounded-lg w-fit flex justify-between"
       >
         {{ selectedLang.name }}
-        <v-icon v-if="open" name="ri-arrow-up-s-line"></v-icon>
-        <v-icon v-else name="ri-arrow-down-s-line"></v-icon>
+        <OhVueIcon v-if="open" name="ri-arrow-up-s-line"></OhVueIcon>
+        <OhVueIcon v-else name="ri-arrow-down-s-line"></OhVueIcon>
       </ListboxButton>
       <ListboxOptions
         contenteditable="false"
@@ -58,7 +59,7 @@ const selectedLang = computed<Language>({
           <li
             class="list-none text-slate-700 rounded-lg hover:bg-slate-50 hover:text-slate-800 hover:cursor-pointer py-2 px-5"
           >
-            <v-icon v-if="selected" name="ri-arrow-right-s-line" class="mr-1"></v-icon>
+            <OhVueIcon v-if="selected" name="ri-arrow-right-s-line" class="mr-1"></OhVueIcon>
             {{ lang.name }}
           </li>
         </ListboxOption>

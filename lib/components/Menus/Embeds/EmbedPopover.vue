@@ -5,6 +5,7 @@ import EditorInput from '../../EditorInput.vue'
 import EditorPopover from '../../EditorPopover.vue'
 import PrimaryButton from '../../PrimaryButton.vue'
 import { ref } from 'vue'
+import { OhVueIcon } from 'oh-vue-icons'
 
 const props = defineProps<{
   icon: string
@@ -34,7 +35,7 @@ const src = ref('')
         <EditorInput type="text" v-model="src" :placeholder="props.placeholder" />
       </label>
       <PrimaryButton @click="emits('click', src)" class="mt-5 py-2 px-3.5 rounded-full">
-        <v-icon name="ri-save-line"></v-icon>
+        <OhVueIcon name="ri-save-line"></OhVueIcon>
       </PrimaryButton>
     </template>
   </EditorPopover>

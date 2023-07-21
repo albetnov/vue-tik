@@ -27,6 +27,7 @@ export interface EditorOptions {
   highlight?: {
     color?: string
   }
+  alias?: string
 }
 
 declare global {

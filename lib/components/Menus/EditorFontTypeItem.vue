@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { OhVueIcon } from 'oh-vue-icons'
 import type { FontTypes } from '../../keys'
 
 const props = defineProps<{
@@ -23,7 +24,7 @@ const classes = [
 <template>
   <button :class="classes" @click="emits('click', props.value)">
     <div class="p-5 rounded-lg bg-zinc-100 text-zinc-600">
-      <v-icon :name="props.icon" />
+      <OhVueIcon :name="props.icon" />
     </div>
     <div class="whitespace-nowrap">
       <p class="m-0 text-lg">{{ props.name }}</p>

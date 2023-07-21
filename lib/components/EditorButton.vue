@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { OhVueIcon } from 'oh-vue-icons'
 import Tooltip from './Tooltip.vue'
 
 const props = defineProps<{
@@ -17,7 +18,7 @@ const props = defineProps<{
       }
     ]"
   >
-    <v-icon :name="props.icon" />
+    <OhVueIcon :name="props.icon" />
     <Tooltip>{{ props.name }}</Tooltip>
   </button>
 </template>

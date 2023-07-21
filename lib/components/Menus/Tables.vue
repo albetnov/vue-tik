@@ -6,6 +6,7 @@ import EditorInput from '../EditorInput.vue'
 import { reactive } from 'vue'
 import PrimaryButton from '../PrimaryButton.vue'
 import type { Editor } from '@tiptap/vue-3'
+import { OhVueIcon } from 'oh-vue-icons'
 
 const props = defineProps<{
   editor?: Editor
@@ -55,7 +56,7 @@ const settings = reactive({
         "
         class="mt-5 py-2 px-3.5 rounded-full"
       >
-        <v-icon name="ri-save-line" />
+        <OhVueIcon name="ri-save-line" />
       </PrimaryButton>
     </template>
   </EditorPopover>

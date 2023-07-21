@@ -1,6 +1,5 @@
 import { type App } from 'vue'
 import EditorView from './components/Editor.vue'
-import { OhVueIcon } from 'oh-vue-icons'
 import { addIcons } from 'oh-vue-icons'
 import {
   RiBold,
@@ -80,10 +79,11 @@ addIcons(
 
 const Editor = {
   install(app: App, options?: EditorOptions) {
-    app
-      .component('vue-tik', EditorView)
-      .component('v-icon', OhVueIcon)
-      .provide(EDITOR_CONFIG, options)
+    app.component(options?.alias ?? 'vue-tik', EditorView)
+
+    if (options?.alias) delete options?.alias
+
+    app.provide(EDITOR_CONFIG, options)
   }
 }
 

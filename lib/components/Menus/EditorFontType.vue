@@ -7,6 +7,7 @@ import { EDITOR_KEY, FontTypes } from '../../keys'
 import Tooltip from '../Tooltip.vue'
 import MenuWrapper from '../MenuWrapper.vue'
 import EditorPopover from '../EditorPopover.vue'
+import { OhVueIcon } from 'oh-vue-icons'
 
 const editor = inject(EDITOR_KEY) as Ref<Editor>
 
@@ -47,7 +48,7 @@ const editorState = computed(() => {
           class="bg-transparent peer hover:cursor-pointer border-none focus:outline-none flex justify-between py-2 px-5"
         >
           <span>{{ editorState }}</span>
-          <v-icon name="ri-arrow-drop-down-line"></v-icon>
+          <OhVueIcon name="ri-arrow-drop-down-line" />
         </PopoverButton>
       </template>
       <template #panel>
