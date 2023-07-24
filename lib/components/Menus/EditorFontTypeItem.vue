@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { OhVueIcon } from 'oh-vue-icons'
+import { OhVueIcon } from 'oh-vue-icons'
 import type { FontTypes } from '../../keys'
 
 const props = defineProps<{

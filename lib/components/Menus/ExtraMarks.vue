@@ -2,16 +2,10 @@
 import { inject } from 'vue'
 import type { EditorOptions } from '../../types'
 import MenuWrapper from '../MenuWrapper.vue'
-import Image from './Image.vue'
 import type { Ref } from 'vue'
 import type { Editor } from '@tiptap/vue-3'
 import { EDITOR_CONFIG, EDITOR_KEY } from '../../keys'
 import EditorButton from '../EditorButton.vue'
-import Tables from './Tables.vue'
-
-const props = defineProps<{
-  imageOptions?: EditorOptions['image']
-}>()
 
 const editor = inject<Ref<Editor>>(EDITOR_KEY)
 const config = inject<EditorOptions>(EDITOR_CONFIG)
@@ -42,13 +36,6 @@ const config = inject<EditorOptions>(EDITOR_CONFIG)
       name="Codeblock"
       @click="editor?.chain().focus().toggleCodeBlock().run()"
       :active="editor?.isActive('codeBlock')"
-    />
-    <Image :options="props?.imageOptions" />
-    <Tables :editor="editor" />
-    <EditorButton
-      icon="ri-divide-line"
-      name="Divider"
-      @click="editor?.chain().focus().setHorizontalRule().run()"
     />
     <EditorButton
       icon="ri-double-quotes-l"

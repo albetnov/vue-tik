@@ -78,7 +78,7 @@ addIcons(
 )
 
 const Editor = {
-  install(app: App, options?: EditorOptions) {
+  install(app: App, options?: EditorOptions & { alias?: string }) {
     app.component(options?.alias ?? 'vue-tik', EditorView)
 
     if (options?.alias) delete options?.alias

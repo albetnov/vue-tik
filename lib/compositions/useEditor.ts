@@ -34,8 +34,9 @@ import TableHeader from '@tiptap/extension-table-header'
 import TableCell from '@tiptap/extension-table-cell'
 import Table from '@tiptap/extension-table'
 import History from '@tiptap/extension-history'
+import type { EditorOptions as TiptapEditorOptions } from '@tiptap/vue-3'
 
-export default function useEditor(config?: EditorOptions) {
+export default function useEditor(config?: EditorOptions & Partial<TiptapEditorOptions>) {
   if (config) {
     provide(EDITOR_CONFIG, config)
   }
@@ -90,7 +91,8 @@ export default function useEditor(config?: EditorOptions) {
         resizable: true
       }),
       History
-    ]
+    ],
+    ...config
   })
 
   return {

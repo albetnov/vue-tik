@@ -11,7 +11,7 @@ defineOptions({
     <slot name="button"></slot>
     <PopoverPanel
       v-bind="$attrs"
-      class="absolute bg-white border border-solid border-slate-400 rounded-lg z-10 w-fit text-nowrap"
+      class="absolute z-20 bg-white border border-solid border-slate-400 rounded-lg z-10 w-fit text-nowrap"
     >
       <slot name="panel"></slot>
     </PopoverPanel>

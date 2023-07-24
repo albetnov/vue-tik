@@ -3,11 +3,12 @@ import EditorFontType from './Menus/EditorFontType.vue'
 import type { EditorOptions } from '../types'
 import Color from './Menus/Color.vue'
 import FontStyle from './Menus/FontStyle.vue'
-import Extras from './Menus/Extras.vue'
+import ExtraMarks from './Menus/ExtraMarks.vue'
 import TextAlign from './Menus/TextAlign.vue'
 import ListItem from './Menus/ListItem.vue'
 import EmbedMenu from './Menus/Embeds/EmbedMenu.vue'
 import History from './Menus/History.vue'
+import ExtraNodes from './Menus/ExtraNodes.vue'
 
 const props = defineProps<{
   options?: EditorOptions
@@ -21,11 +22,10 @@ const props = defineProps<{
     <EditorFontType />
     <Color />
     <FontStyle />
-    <div class="flex gap-2 md:gap-5">
-      <TextAlign />
-      <ListItem />
-    </div>
-    <Extras :image-options="props.options?.image" />
+    <TextAlign />
+    <ListItem />
+    <ExtraMarks />
+    <ExtraNodes :image-options="props.options?.image" />
     <EmbedMenu />
     <History />
   </div>
