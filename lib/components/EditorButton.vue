@@ -10,6 +10,7 @@ const props = defineProps<{
 </script>
 <template>
   <button
+    type="button"
     :class="[
       'relative group py-2 px-4 border-none rounded-full text-medium transition-colors duration-200 hover:cursor-pointer',
       {

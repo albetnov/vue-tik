@@ -22,7 +22,7 @@ const classes = [
 </script>
 
 <template>
-  <button :class="classes" @click="emits('click', props.value)">
+  <button :class="classes" @click="emits('click', props.value)" type="button">
     <div class="p-5 rounded-lg bg-zinc-100 text-zinc-600">
       <OhVueIcon :name="props.icon" />
     </div>
