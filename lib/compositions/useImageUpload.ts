@@ -35,7 +35,10 @@ export default function useImageUpload(options?: EditorOptions['image']) {
       const result = await fetch(options.url, {
         method: 'POST',
         body: formData,
-        headers: options?.headers ?? {}
+        headers: {
+          Accept: 'application/json',
+          ...options?.headers
+        }
       })
 
       const data = await result.json()
