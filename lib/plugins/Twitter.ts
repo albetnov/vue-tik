@@ -1,6 +1,7 @@
 import { Node, mergeAttributes } from '@tiptap/core'
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
 import TwitterView from './views/TwitterView.vue'
+import { Fragment } from '@tiptap/pm/model'
 
 const Twitter = Node.create<{
   HTMLAttributes: Record<string, any>
@@ -9,6 +10,8 @@ const Twitter = Node.create<{
   group: 'block',
   content: 'block*',
   atom: true,
+  marks: '',
+  selectable: true,
 
   addOptions() {
     return {
@@ -19,7 +22,10 @@ const Twitter = Node.create<{
   parseHTML() {
     return [
       {
-        tag: 'div[data-twitter-id][data-twitter-url]'
+        tag: 'div[data-twitter-id][data-twitter-url]',
+        getContent(node, schema) {
+          return Fragment.from()
+        }
       }
     ]
   },
